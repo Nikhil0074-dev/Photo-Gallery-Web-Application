@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Photo Gallery</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/gallery.css">
+</head>
+<body>
+  <header>
+    <nav class="container">
+      <div class="logo">📸 Photo Gallery</div>
+      <div>
+        <button onclick="loadAlbums()">Albums</button>
+        <button onclick="loadUploadPage()">Upload</button>
+        <button id="logoutBtn" style="display:none;" onclick="logout()">Logout</button>
+        <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container">
+    <div id="authSection">
+      <div class="form-container">
+        <h2>Welcome to Photo Gallery</h2>
+        <button class="btn" onclick="showLogin()">Login</button>
+        <button class="btn" onclick="showRegister()">Register</button>
+      </div>
+    </div>
+
+    <div id="gallerySection" style="display:none;">
+      <div class="gallery-header">
+        <h1>My Gallery</h1>
+        <div class="search-filter">
+          <input type="text" id="searchInput" placeholder="Search photos..." oninput="filterPhotos()">
+          <select id="albumFilter" onchange="filterPhotos()">
+            <option value="">All Albums</option>
+          </select>
+        </div>
+      </div>
+      <div id="photosContainer" class="gallery-grid">
+        <div class="no-photos">No photos yet. Upload some!</div>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="imageModal" class="modal">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <img class="modal-content" id="modalImage">
+      <div class="modal-body" id="modalBody"></div>
+    </div>
+  </main>
+
+  <script src="js/app.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/gallery.js"></script>
+  <script src="js/upload.js"></script>
+</body>
+</html>
